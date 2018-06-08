@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="box" id="index-box">
+        <div class="logo-box">
+            <img class="logo" src="./renderer/images/logo.png" alt="垂钓书海">
+            <p>垂钓书海</p>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="glyphicon glyphicon-th-list"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a id="goHistory" href="javascript: void(0);">采集记录</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a id="update" href="javascript: void(0);">检查更新</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form onsubmit="return false;">
+                    <div class="alert alert-danger" id="tooltip-box">
+                        <strong>错误：</strong> <span>检查更新</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="collectabledSite">采集的网站：</label>
+                        <select name="site" class="form-control" id="collectabledSite">
+                            <option value="">请选择</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="startLink">采集书籍的首章链接：</label>
+                        <input type="text" name="starturl" class="form-control" id="startLink" autocomplete="off" placeholder="请输入采集书籍的首章链接">
+                    </div>
+                    <div class="form-group">
+                        <label>保存地址：</label>
+                        <div class="save-box">
+                            <input type="text" name="savepath" class="form-control" readonly id="savepath">
+                            <input type="file" id="saveAddress" webkitdirectory directory>
+                        </div>
+                    </div>
+                    <button id="startCollect" type="button" class="btn btn-primary center-block">开始采集</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="box" id="history-box">
+        <ol class="breadcrumb">
+            <li><a id="goHome" href="javascript: void(0);"><i class="glyphicon glyphicon-home"></i>返回首页</a></li>
+            <li>采集记录</li>
+        </ol>
+        <div class="panel panel-default">
+                <div class="panel-heading">采集记录<a class="pull-right" id="clear" href="javascript: void(0);">清空记录</a></div>
+                <table class="table" id="records">
+                    <tbody></tbody>
+                </table>
+            </div>
+    </div>
+</body>
+</html>
